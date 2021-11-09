@@ -1,0 +1,44 @@
+package com.oht.UI.main;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+
+import com.oht.Data.Step;
+import com.oht.R;
+import com.oht.UI.main.Adapter.MainRecyclerAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private MainRecyclerAdapter mainRecyclerAdapter;
+    private List<Step>list = new ArrayList<>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        addListData();
+        init();
+    }
+
+    private void init(){
+
+        recyclerView = findViewById(R.id.main_recycler_view);
+
+        mainRecyclerAdapter = new MainRecyclerAdapter(list) ;
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(mainRecyclerAdapter);
+    }
+    private void addListData(){
+        list.add(new Step("STEP 1 - Reading Test 1","글씨를 읽을 때 시습관을 관찰합니다."));
+        list.add(new Step("STEP 2 - Training","공의 움직임에 따라 눈동자의 움직임을 관찰하고 학습합니다."));
+        list.add(new Step("STEP 3 - Reading Test 2","시력 습관을 개선하기 위한 테스트를 진행합니다."));
+    }
+}
