@@ -23,12 +23,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UI.main.MainActivity"/>
+        <activity android:name=".UI.Main.MainActivity"/>
         <activity android:name=".UI.FirstStep.Ready.FirstStepReadyActivity"/>
         <activity android:name=".UI.FirstStep.Ready.FirstStepLoadingActivity"/>
         <activity android:name=".UI.FirstStep.Ready.FirstStepActivity"/>
         <activity android:name=".UI.FirstStep.Result.FirstStepResultActivity"/>
         <activity android:name=".UI.FirstStep.Result.FirstStepEndActivity"/>
+        <activity android:name=".UI.SecondStep.Ready.SecondStepReadyActivity"/>
+        <activity android:name=".UI.SecondStep.Ready.SecondStepActivity"/>
+        <activity android:name=".UI.SecondStep.Ready.SecondStepLoading"/>
+        <activity android:name=".UI.SecondStep.Result.SecondStepEndActivity"/>
+        <activity android:name=".UI.SecondStep.Result.SecondStepResultActivity"/>
+        <activity android:name=".UI.ThirdStep.Ready.ThirdStepActivity"/>
+        <activity android:name=".UI.ThirdStep.Ready.ThirdStepLoading"/>
+        <activity android:name=".UI.ThirdStep.Ready.ThirdStepReadyActivity"/>
+        <activity android:name=".UI.ThirdStep.Result.ThirdStepEndActivity"/>
+        <activity android:name=".UI.ThirdStep.Result.ThirdStepResultActivity"/>
     </application>
 
 </manifest>

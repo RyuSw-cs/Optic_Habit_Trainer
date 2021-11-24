@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.oht.R;
-import com.oht.UI.main.MainActivity;
+import com.oht.UI.Main.MainActivity;
 
 public class FirstStepResultActivity extends AppCompatActivity {
 

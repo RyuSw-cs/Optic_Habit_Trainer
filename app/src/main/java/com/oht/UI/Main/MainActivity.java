@@ -1,18 +1,16 @@
-package com.oht.UI.main;
+package com.oht.UI.Main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.oht.Data.Step;
 import com.oht.R;
-import com.oht.UI.main.Adapter.MainRecyclerAdapter;
+import com.oht.UI.Main.Adapter.MainRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

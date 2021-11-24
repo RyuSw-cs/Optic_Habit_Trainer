@@ -21,7 +21,7 @@ public class FirstStepLoadingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first_step_loading);
+        setContentView(R.layout.activity_step_loading);
         textView = findViewById(R.id.loading_count);
 
         final Handler handler = new Handler(){
