@@ -2,18 +2,22 @@ package com.oht.UI.main.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.oht.Data.Step;
 import com.oht.R;
-import com.oht.UI.FirstStep.FirstStepActivity;
+import com.oht.UI.FirstStep.Ready.FirstStepReadyActivity;
 import com.oht.UI.Loading.LoadingActivity;
 
 import java.util.List;
@@ -21,9 +25,13 @@ import java.util.List;
 public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapter.ViewHolder> {
 
     private List<Step>getList;
+    private boolean[] check;
+    private Context context;
 
-    public MainRecyclerAdapter(List<Step>list){
+    public MainRecyclerAdapter(List<Step>list, boolean[]getCheck, Context context){
         getList = list;
+        check= getCheck;
+        this.context = context;
     }
 
     @NonNull
@@ -37,10 +45,17 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        int pos = position;
         holder.stepTitle.setText(getList.get(position).getStepTitle());
         holder.stepContent.setText(getList.get(position).getStepContent());
+        int tempTop = holder.startBtn.getPaddingTop();
+        int tempBottom = holder.startBtn.getPaddingBottom();
+        //완료
+        if(check[position]){
+            holder.itemView.setBackground(ContextCompat.getDrawable(context,R.drawable.main_list_after));
+            holder.startBtn.setBackground(ContextCompat.getDrawable(context,R.drawable.main_btn_shape_after));
+            holder.startBtn.setPadding(0,tempTop,0,tempBottom);
+            holder.startBtn.setEnabled(false);
+        }
     }
 
     @Override
@@ -65,7 +80,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
                     Intent intent;
                     switch (getAdapterPosition()){
                         case 0:
-                            intent = new Intent(v.getContext(), FirstStepActivity.class);
+                            intent = new Intent(v.getContext(), FirstStepReadyActivity.class);
                             v.getContext().startActivity(intent);
                             break;
                         case 1:

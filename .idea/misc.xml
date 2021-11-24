@@ -3,12 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/drawable/frist_step_btn.xml" value="0.3583984375" />
+        <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/drawable/main_btn_shape.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/drawable/main_btn_shape_after.xml" value="0.3583984375" />
+        <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/drawable/main_list_after.xml" value="0.3583984375" />
         <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/drawable/main_list_shape.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/drawable/text_background.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/font/font.xml" value="0.3963541666666667" />
         <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/layout/activity_first_step.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/layout/activity_first_step_loading.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/layout/activity_first_step_ready.xml" value="0.2046875" />
+        <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/layout/activity_first_step_result.xml" value="0.29743589743589743" />
+        <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/layout/activity_frist_step_loading.xml" value="0.3515625" />
         <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/layout/activity_loading.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/layout/activtiy_first_step_end.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/MULTI/Desktop/Optic_Habit_Trainer_Project/Optic_Habit_Trainer/app/src/main/res/layout/main_list.xml" value="0.36614583333333334" />
       </map>
     </option>

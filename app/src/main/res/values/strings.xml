@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">App</string>
+    <string name="first_step_content">
+        그래서, \"어린 왕자가 매혹적이었고, 웃었고, \n\n\n양 한마리를 가지고 싶어했다는 것이\n\n\n그가 이 세상에 있었던 증거야.\n\n\n어떤 사람이 양을 갖고 싶어한다면\n\n\n그건 그가 이 세상에 있는 증거야.\"\n\n\n라고 말한다면 그들은 어깨를 으쓱하고는\n\n\n여러분을 어린아이 취급할 것이다.\n
+    </string>
+    <string name="first_step_result_content">
+        그래서, \"어린 왕자가 매혹적이었고, 웃었고, \n\n양 한마리를 가지고 싶어했다는 것이\n\n그가 이 세상에 있었던 증거야.\n\n어떤 사람이 양을 갖고 싶어한다면\n\n그건 그가 이 세상에 있는 증거야.\"\n\n라고 말한다면 그들은 어깨를 으쓱하고는\n\n여러분을 어린아이 취급할 것이다.\n
+    </string>
 </resources>
