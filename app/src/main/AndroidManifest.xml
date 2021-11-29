@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UI.Main.MainActivity"/>
+        <activity android:name="com.oht.UI.Main.MainActivity"/>
         <activity android:name=".UI.FirstStep.Ready.FirstStepReadyActivity"/>
         <activity android:name=".UI.FirstStep.Ready.FirstStepLoadingActivity"/>
         <activity android:name=".UI.FirstStep.Ready.FirstStepActivity"/>

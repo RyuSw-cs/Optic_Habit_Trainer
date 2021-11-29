@@ -9,7 +9,6 @@ import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.oht.R;
-import com.oht.UI.FirstStep.Result.FirstStepEndActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
