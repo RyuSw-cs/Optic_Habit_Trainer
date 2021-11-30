@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/step1_title" />
 
-    <VideoView
+    <com.oht.UI.SecondStep.TrainBackground
         android:id="@+id/second_step_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -55,12 +55,12 @@
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/second_step_result"
+        app:layout_constraintBottom_toTopOf="@+id/third_step_result"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/second_step_result"
+        android:id="@+id/third_step_result"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
@@ -73,12 +73,12 @@
         android:textColor="@color/black"
         android:textSize="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/first_step_result_end"
+        app:layout_constraintEnd_toStartOf="@+id/thrid_step_result_end"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/first_step_result_end"
+        android:id="@+id/thrid_step_result_end"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginEnd="40dp"
@@ -86,7 +86,7 @@
         android:clickable="true"
         app:fabCustomSize="80dp"
         android:src="@drawable/next_step_img"
-        app:layout_constraintBottom_toBottomOf="@+id/second_step_result"
+        app:layout_constraintBottom_toBottomOf="@+id/third_step_result"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/second_step_result" />
+        app:layout_constraintTop_toTopOf="@+id/third_step_result" />
 </androidx.constraintlayout.widget.ConstraintLayout>

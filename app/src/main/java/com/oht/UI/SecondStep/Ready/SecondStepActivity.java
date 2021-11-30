@@ -1,6 +1,8 @@
 package com.oht.UI.SecondStep.Ready;
 
+import android.content.Intent;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,23 +14,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.oht.R;
 import com.oht.UI.SecondStep.TrainBackground;
-
+import com.oht.UI.SecondStep.Result.SecondStepEndActivity;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class SecondStepActivity extends AppCompatActivity {
 
     private Button startBtn;
-    private TrainBackground trainBackground;
+    public TrainBackground trainBackground;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_step);
-        trainBackground = findViewById(R.id.second_step_canvas);
+        trainBackground = (TrainBackground) findViewById(R.id.second_step_canvas);
         startBtn = findViewById(R.id.start_btn);
-
-
 
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +39,7 @@ public class SecondStepActivity extends AppCompatActivity {
         });
     }
 
-    private void training() {
+    public void training() {
         trainBackground.startCheck(false);
     }
 }

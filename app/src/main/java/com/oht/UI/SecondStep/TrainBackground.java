@@ -1,16 +1,14 @@
 package com.oht.UI.SecondStep;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Movie;
+
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Rect;
+
 import android.graphics.RectF;
+
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
@@ -20,7 +18,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.oht.Data.Circle;
-import com.oht.R;
+import com.oht.UI.FirstStep.Result.FirstStepEndActivity;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -28,33 +26,30 @@ import java.util.TimerTask;
 
 public class TrainBackground extends View {
 
-    private int width = 0;
-    private int height = 0;
-    private ArrayList<Circle> shape = new ArrayList<>();
-    private boolean check = true;
-    int leftWidth = 80;
-    int rightWidth = 180;
-    int leftHeight = 80;
-    int rightHeight = 180;
-    int j = 0;
-    int i = 0;
-    Timer timer = new Timer();
-
-    public TrainBackground(Context context, boolean check) {
-        super(context);
-        this.check = check;
-    }
+    public ArrayList<Circle> shape;
+    public boolean check;
+    public int leftWidth, rightWidth, leftHeight, rightHeight, height, width;
+    public Paint change;
+    public Handler handler;
+    public Timer timer;
+    public TimerTask timerTask;
+    public final int[] i = {0, 0};
 
     public TrainBackground(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
-    public TrainBackground(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    public TrainBackground(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+    private void init() {
+        change = new Paint();
+        leftWidth = 80;
+        rightWidth = 180;
+        leftHeight = 80;
+        rightHeight = 180;
+        width = 0;
+        height = 0;
+        check = true;
+        shape = new ArrayList<>();
     }
 
     @Override
@@ -71,7 +66,6 @@ public class TrainBackground extends View {
         if (check) {
             drawing(canvas);
         } else {
-            //해당 작업이 1초마다 해야함.
             train(canvas);
         }
     }
@@ -96,36 +90,37 @@ public class TrainBackground extends View {
     }
 
     public void train(Canvas canvas) {
-        Paint changePaint = new Paint();
-        /* 위치를 옮기며 파란색 원을 그림 */
-        final Handler handler = new Handler() {
+        Paint test = new Paint();
+        handler = new Handler() {
             public void handleMessage(Message msg) {
-                /* 1초마다 실행 */
-                if (!(i > shape.size())) {
-                    if (j == i) {
-                        changePaint.setColor(Color.parseColor("#2977F3"));
-                        shape.get(j).setPaint(changePaint);
+                if (i[0] < shape.size()) {
+                    if (i[1] == i[0]) {
+                        test.setColor(Color.parseColor("#2977F3"));
+                        shape.get(i[0]).setPaint(test);
                     }
-                    canvas.drawArc(shape.get(i).getRect(), 0, 360, true, shape.get(i).getPaint());
-                    changePaint.setColor(Color.parseColor("#BABABA"));
-                    shape.get(i).setPaint(changePaint);
-                    i++;
-                }
-                else {
+                    while (i[1] < shape.size()) {
+                        canvas.drawArc(shape.get(i[1]).getRect(), 0, 360, true, shape.get(i[1]).getPaint());
+                        test.setColor(Color.parseColor("#BABABA"));
+                        shape.get(i[1]).setPaint(test);
+                        i[1]++;
+                    }
+                    i[1] = 0;
+                    i[0]++;
+                } else {
                     timer.cancel();
                 }
             }
         };
 
-        TimerTask timerTask = new TimerTask() {
+        timer = new Timer();
+        timerTask = new TimerTask() {
             @Override
             public void run() {
                 Message msg = handler.obtainMessage();
                 handler.sendMessage(msg);
             }
         };
-        //타이머 실행
-        timer.schedule(timerTask, 0, 1000);
+        timer.schedule(timerTask, 0,3000);
     }
 
     public void startCheck(boolean temp) {

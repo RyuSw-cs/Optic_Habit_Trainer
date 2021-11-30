@@ -30,7 +30,7 @@ public class ThirdStepLoadingActivity extends AppCompatActivity {
             public void handleMessage(Message msg) {
                 time--;
                 if (time == 0) {
-                    Intent intent = new Intent(getApplicationContext(), FirstStepActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), ThirdStepActivity.class);
                     startActivity(intent);
                     finish();
                 }

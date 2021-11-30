@@ -46,7 +46,7 @@
         android:padding="10dp"
         android:text="STEP 1-테스트 결과"
         android:textColor="#ffffff"
-        android:textSize="36sp"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/step_content" />
 
@@ -55,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,14 +67,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="48dp"
         android:background="@drawable/first_step_btn"
         android:fontFamily="@font/kakaobold"
         android:gravity="center"
         android:padding="10dp"
         android:text="STEP 3-테스트 결과"
         android:textColor="#ffffff"
-        android:textSize="36sp"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/surfaceView2" />
 
@@ -83,17 +83,18 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/second_step_result"
+        android:id="@+id/third_step_result"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/text_background"
@@ -103,12 +104,13 @@
         android:textColor="@color/black"
         android:textSize="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/first_step_result_end"
+        app:layout_constraintEnd_toStartOf="@+id/thrid_step_result_end"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/surfaceView" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/first_step_result_end"
+        android:id="@+id/thrid_step_result_end"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginEnd="40dp"
@@ -116,7 +118,7 @@
         android:clickable="true"
         app:fabCustomSize="80dp"
         android:src="@drawable/next_step_img"
-        app:layout_constraintBottom_toBottomOf="@+id/second_step_result"
+        app:layout_constraintBottom_toBottomOf="@+id/third_step_result"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/second_step_result" />
+        app:layout_constraintTop_toTopOf="@+id/third_step_result" />
 </androidx.constraintlayout.widget.ConstraintLayout>
