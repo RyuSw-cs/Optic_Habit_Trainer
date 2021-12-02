@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.oht.R;
 import com.oht.UI.SecondStep.TrainBackground;
 import com.oht.UI.SecondStep.Result.SecondStepEndActivity;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -22,6 +23,8 @@ public class SecondStepActivity extends AppCompatActivity {
 
     private Button startBtn;
     public TrainBackground trainBackground;
+    private Handler handler;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,6 +32,8 @@ public class SecondStepActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second_step);
         trainBackground = (TrainBackground) findViewById(R.id.second_step_canvas);
         startBtn = findViewById(R.id.start_btn);
+
+        handler = new Handler();
 
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +45,25 @@ public class SecondStepActivity extends AppCompatActivity {
     }
 
     public void training() {
-        trainBackground.startCheck(false);
+        //여기서 UI를 관리해야함
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                trainBackground.check = false;
+                for(int i = 0; i<trainBackground.size; i++){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                trainBackground.invalidate();
+                                Thread.sleep(1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                }
+            }
+        }).start();
     }
 }
