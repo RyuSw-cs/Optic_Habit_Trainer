@@ -3,6 +3,7 @@ package com.oht.UI.SecondStep.Ready;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -23,8 +24,7 @@ public class SecondStepActivity extends AppCompatActivity {
 
     private Button startBtn;
     public TrainBackground trainBackground;
-    private Handler handler;
-
+    private boolean check = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,11 +33,10 @@ public class SecondStepActivity extends AppCompatActivity {
         trainBackground = (TrainBackground) findViewById(R.id.second_step_canvas);
         startBtn = findViewById(R.id.start_btn);
 
-        handler = new Handler();
-
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                trainBackground.check = false;
                 startBtn.setVisibility(View.INVISIBLE);
                 training();
             }
@@ -49,17 +48,23 @@ public class SecondStepActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                trainBackground.check = false;
-                for(int i = 0; i<trainBackground.size; i++){
+                while (!check) {
+                    if (trainBackground.size < trainBackground.count) {
+                        check = true;
+                        Thread.currentThread().interrupt();
+                        Intent intent = new Intent(getApplicationContext(), SecondStepEndActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    try {
+                        Thread.sleep(400);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            try {
-                                trainBackground.invalidate();
-                                Thread.sleep(1000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
+                            trainBackground.invalidate();
                         }
                     });
                 }
@@ -67,3 +72,4 @@ public class SecondStepActivity extends AppCompatActivity {
         }).start();
     }
 }
+

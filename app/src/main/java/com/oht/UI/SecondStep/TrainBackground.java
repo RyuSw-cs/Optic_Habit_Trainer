@@ -10,13 +10,17 @@ import android.graphics.Paint;
 
 import android.graphics.RectF;
 
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewParent;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.motion.utils.ViewState;
 
 import com.oht.Data.Circle;
 import com.oht.UI.FirstStep.Result.FirstStepEndActivity;
@@ -25,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class TrainBackground extends View{
+public class TrainBackground extends View {
 
     public ArrayList<Circle> shape;
     public boolean check;
@@ -36,10 +40,30 @@ public class TrainBackground extends View{
     public int count = 0;
     public int size = 0;
 
+    public TrainBackground(Context context) {
+        super(context);
+        init();
+        this.setWillNotDraw(false);
+    }
+
     public TrainBackground(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
+        this.setWillNotDraw(false);
     }
+
+    public TrainBackground(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init();
+        this.setWillNotDraw(false);
+    }
+
+    public TrainBackground(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        init();
+        this.setWillNotDraw(false);
+    }
+
 
     private void init() {
         change = new Paint();
@@ -64,11 +88,16 @@ public class TrainBackground extends View{
     @Override
     protected void onDraw(Canvas canvas) {
         /* 왠만하면 객체 생성 금지 */
-        super.onDraw(canvas);
         if (check) {
             drawing(canvas);
         } else {
             train(canvas, count);
+            try {
+                Thread.sleep(400);
+                return;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -93,7 +122,7 @@ public class TrainBackground extends View{
     }
 
     public void train(Canvas canvas, int count) {
-        if(count > size){
+        if (count > size) {
             return;
         }
         for (int j = 0; j < size; j++) {
@@ -105,7 +134,7 @@ public class TrainBackground extends View{
             change.setColor(Color.parseColor("#BABABA"));
             shape.get(j).setPaint(change);
         }
-        count++;
+        this.count++;
     }
 }
 
