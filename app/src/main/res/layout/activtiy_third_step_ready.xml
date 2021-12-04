@@ -54,20 +54,19 @@
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="300dp"
         android:src="@drawable/testing"
-        app:layout_constraintBottom_toBottomOf="@+id/cameraPreview2"
-        app:layout_constraintEnd_toEndOf="@+id/cameraPreview2"
-        app:layout_constraintStart_toStartOf="@+id/cameraPreview2"
-        app:layout_constraintTop_toTopOf="@+id/cameraPreview2" />
+        app:layout_constraintBottom_toBottomOf="@+id/cameraPreview3"
+        app:layout_constraintEnd_toEndOf="@+id/cameraPreview3"
+        app:layout_constraintStart_toStartOf="@+id/cameraPreview3"
+        app:layout_constraintTop_toTopOf="@+id/cameraPreview3" />
 
-    <SurfaceView
-        android:id="@+id/cameraPreview2"
+    <TextureView
+        android:id="@+id/cameraPreview3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="30dp"
-        android:background="#9073A1"
         app:layout_constraintBottom_toTopOf="@+id/third_step_next_step"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
