@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.oht.UI.SecondStep.TrainBackground
+    <com.oht.UI.Train.TrainBackground
         android:id="@+id/second_step_canvas"
         android:layout_width="0dp"
         android:layout_height="0dp"

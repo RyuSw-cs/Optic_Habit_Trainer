@@ -1,8 +1,6 @@
-package com.oht.UI.SecondStep;
+package com.oht.UI.Train;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 
@@ -10,24 +8,15 @@ import android.graphics.Paint;
 
 import android.graphics.RectF;
 
-import android.os.Build;
 import android.os.Handler;
-import android.os.Message;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewParent;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.constraintlayout.motion.utils.ViewState;
 
 import com.oht.Data.Circle;
-import com.oht.UI.FirstStep.Result.FirstStepEndActivity;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class TrainBackground extends View {
 
@@ -93,7 +82,7 @@ public class TrainBackground extends View {
         } else {
             train(canvas, count);
             try {
-                Thread.sleep(400);
+                Thread.sleep(154);
                 return;
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -123,7 +112,8 @@ public class TrainBackground extends View {
 
     public void train(Canvas canvas, int count) {
         if (count > size) {
-            return;
+            shape.clear();
+            drawing(canvas);
         }
         for (int j = 0; j < size; j++) {
             if (j == count) {

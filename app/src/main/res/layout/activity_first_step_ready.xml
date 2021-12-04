@@ -67,7 +67,6 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="30dp"
-        android:background="#9073A1"
         app:layout_constraintBottom_toTopOf="@+id/first_step_next_step"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,12 +1,7 @@
 package com.oht.UI.SecondStep.Ready;
 
 import android.content.Intent;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,11 +9,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.oht.R;
-import com.oht.UI.SecondStep.TrainBackground;
+import com.oht.UI.Train.TrainBackground;
 import com.oht.UI.SecondStep.Result.SecondStepEndActivity;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class SecondStepActivity extends AppCompatActivity {
 
@@ -57,7 +49,7 @@ public class SecondStepActivity extends AppCompatActivity {
                         finish();
                     }
                     try {
-                        Thread.sleep(400);
+                        Thread.sleep(153);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

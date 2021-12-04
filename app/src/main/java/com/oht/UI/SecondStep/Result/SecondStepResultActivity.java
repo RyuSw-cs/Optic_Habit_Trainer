@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.oht.R;
 import com.oht.UI.Main.MainActivity;
+import com.oht.UI.Train.TrainBackground;
 
 public class SecondStepResultActivity extends AppCompatActivity {
 
@@ -25,6 +27,8 @@ public class SecondStepResultActivity extends AppCompatActivity {
     private TextView result;
     private FloatingActionButton endBtn;
     private String content;
+    private TrainBackground trainBackground;
+    private boolean check = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,6 +39,7 @@ public class SecondStepResultActivity extends AppCompatActivity {
     private void init(){
         result = findViewById(R.id.third_step_result);
         endBtn = findViewById(R.id.thrid_step_result_end);
+        trainBackground = findViewById(R.id.second_step_content);
 
         String newPoint = String.valueOf(randomPoint()) + "점 ";
         result.setText("당신의 시력습관은\n" + newPoint +"입니다.");

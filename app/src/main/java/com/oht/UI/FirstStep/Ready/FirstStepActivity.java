@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.TextureView;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
