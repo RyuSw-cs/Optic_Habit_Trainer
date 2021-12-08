@@ -256,7 +256,7 @@ public class FirstStepReadyActivity extends AppCompatActivity {
                         rotatedPreviewWidth, rotatedPreviewHeight, maxPreviewWidth,
                         maxPreviewHeight, largest);
 
-                mCameraId = cameraId;
+                mCameraId = "1";
                 return;
             }
         } catch (CameraAccessException e) {

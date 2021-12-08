@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <TextView
         android:id="@+id/step1_title"
         android:layout_width="wrap_content"
@@ -71,4 +73,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/first_step_progress_bar"
         app:layout_constraintVertical_bias="0.0" />
+
+    <SurfaceView
+        android:id="@+id/front_camera"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

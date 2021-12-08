@@ -13,8 +13,10 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.TextureView;
+import android.view.View;
 import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,7 +30,7 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class FirstStepActivity extends AppCompatActivity {
+public class FirstStepActivity extends AppCompatActivity implements SurfaceHolder.Callback {
 
     private int time = 15;
     private int proceed = 7;
@@ -37,12 +39,18 @@ public class FirstStepActivity extends AppCompatActivity {
     private File fileName, fileDir;
     private SurfaceView surfaceView;
     private SurfaceHolder surfaceHolder;
+    private Camera frontCamera;
+    private Timer timer;
+    private TimerTask timerTask;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_step);
+        surfaceView = findViewById(R.id.front_camera);
+        surfaceHolder = surfaceView.getHolder();
+        surfaceHolder.addCallback(this);
         try {
             init();
         } catch (IOException e) {
@@ -63,8 +71,8 @@ public class FirstStepActivity extends AppCompatActivity {
             }
         };
 
-        Timer timer = new Timer();
-        TimerTask timerTask = new TimerTask() {
+        timer = new Timer();
+        timerTask = new TimerTask() {
             @Override
             public void run() {
                 Message msg = handler.obtainMessage();
@@ -72,7 +80,6 @@ public class FirstStepActivity extends AppCompatActivity {
             }
         };
         //타이머 실행
-        timer.schedule(timerTask, 0, 1000);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -80,10 +87,6 @@ public class FirstStepActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.first_step_progress_bar);
         progressBar.setIndeterminate(false);
         progressBar.setProgress(0);
-
-        surfaceView = findViewById(R.id.surfaceView);
-        surfaceHolder = surfaceView.getHolder();
-        surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
         long now = System.currentTimeMillis();
         Date date = new Date(now);
@@ -94,23 +97,24 @@ public class FirstStepActivity extends AppCompatActivity {
             fileDir.mkdirs();
         }
         fileName = new File(fileDir.getPath() + "/" + simpleDateFormat.format(date) + ".mp4");
+
         recordAudio();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void recordAudio(){
-        mediaRecorder = new MediaRecorder();
-        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
-        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT);
-        mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.DEFAULT);
-        mediaRecorder.setOutputFile(fileName);
-        mediaRecorder.setPreviewDisplay(surfaceHolder.getSurface());
+    public void recordAudio() {
         try {
-            mediaRecorder.prepare();
-            mediaRecorder.start();
-        }catch (Exception e){
+            int i;
+            for (i = 0; i < Camera.getNumberOfCameras(); i++) {
+                Camera.CameraInfo info = new Camera.CameraInfo();
+                Camera.getCameraInfo(i, info);
+                if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+                    break;
+                }
+            }
+            frontCamera = getCamera(i);
+            frontCamera.unlock();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -123,11 +127,63 @@ public class FirstStepActivity extends AppCompatActivity {
             mediaRecorder = null;
         }
     }
-    public void stopRecording(){
+
+    public void stopRecording() {
         if (mediaRecorder != null) {
             mediaRecorder.stop();
             mediaRecorder.release();
             mediaRecorder = null;
+            frontCamera.release();
+            frontCamera = null;
         }
+    }
+
+    private Camera getCamera(int i) {
+        Camera c = null;
+        try {
+            c = Camera.open(i);
+        } catch (Exception e) {
+
+        }
+        return c;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void surfaceCreated(@NonNull SurfaceHolder holder) {
+        try {
+            mediaRecorder = new MediaRecorder();
+            mediaRecorder.setCamera(frontCamera);
+            mediaRecorder.setPreviewDisplay(surfaceHolder.getSurface());
+            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+            mediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+            mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+            mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
+            mediaRecorder.setVideoEncodingBitRate(1024 * 1024);
+            mediaRecorder.setVideoFrameRate(15);
+            mediaRecorder.setOrientationHint(270);
+            mediaRecorder.setOutputFile(fileName);
+            mediaRecorder.prepare();
+            mediaRecorder.start();
+            timer.schedule(timerTask, 0, 1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void surfaceChanged(@NonNull SurfaceHolder holder, int format, int width, int height) {
+
+    }
+
+    @Override
+    public void surfaceDestroyed(@NonNull SurfaceHolder holder) {
+
     }
 }
