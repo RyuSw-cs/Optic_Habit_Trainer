@@ -71,4 +71,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/third_step_progress_bar"
         app:layout_constraintVertical_bias="0.0" />
+
+    <SurfaceView
+        android:id="@+id/third_front_camera"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

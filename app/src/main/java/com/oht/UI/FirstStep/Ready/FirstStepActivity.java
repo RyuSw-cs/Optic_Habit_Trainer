@@ -51,11 +51,7 @@ public class FirstStepActivity extends AppCompatActivity implements SurfaceHolde
         surfaceView = findViewById(R.id.front_camera);
         surfaceHolder = surfaceView.getHolder();
         surfaceHolder.addCallback(this);
-        try {
-            init();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        init();
 
         final Handler handler = new Handler() {
             public void handleMessage(Message msg) {
@@ -79,11 +75,10 @@ public class FirstStepActivity extends AppCompatActivity implements SurfaceHolde
                 handler.sendMessage(msg);
             }
         };
-        //타이머 실행
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void init() throws IOException {
+    private void init() {
         progressBar = findViewById(R.id.first_step_progress_bar);
         progressBar.setIndeterminate(false);
         progressBar.setProgress(0);
@@ -96,7 +91,7 @@ public class FirstStepActivity extends AppCompatActivity implements SurfaceHolde
         if (!fileDir.exists()) {
             fileDir.mkdirs();
         }
-        fileName = new File(fileDir.getPath() + "/" + simpleDateFormat.format(date) + ".mp4");
+        fileName = new File(fileDir.getPath() + "/" + simpleDateFormat.format(date) + "_1.mp4");
 
         recordAudio();
     }

@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -17,6 +19,10 @@ import com.oht.Data.Step;
 import com.oht.R;
 import com.oht.UI.Main.Adapter.MainRecyclerAdapter;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
 
+    //_1.mp4 파일을 전부 가져와서 날짜별로 정렬 -> 가장 최신순을 재생.
     private void init(){
         floatingActionButton = findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {

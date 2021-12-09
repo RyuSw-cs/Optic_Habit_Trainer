@@ -115,11 +115,11 @@ public class SecondStepReadyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activtiy_third_step_ready);
+        setContentView(R.layout.activity_second_step_ready);
 
-        nextStep = findViewById(R.id.third_step_next_step);
+        nextStep = findViewById(R.id.second_step_next_step);
         imageView = findViewById(R.id.test);
-        mTextureView = findViewById(R.id.cameraPreview3);
+        mTextureView = findViewById(R.id.cameraPreview2);
 
         imageView.bringToFront();
         nextStep.setOnClickListener(new View.OnClickListener() {
@@ -248,7 +248,7 @@ public class SecondStepReadyActivity extends AppCompatActivity {
                         rotatedPreviewWidth, rotatedPreviewHeight, maxPreviewWidth,
                         maxPreviewHeight, largest);
 
-                mCameraId = cameraId;
+                mCameraId = "1";
                 return;
             }
         } catch (CameraAccessException e) {

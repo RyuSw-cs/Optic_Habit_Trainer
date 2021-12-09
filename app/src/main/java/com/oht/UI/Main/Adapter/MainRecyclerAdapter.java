@@ -83,25 +83,6 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
                             v.getContext().startActivity(intent);
                             break;
                         case 1:
-                            intent = new Intent(v.getContext(), SecondStepReadyActivity.class);
-                            v.getContext().startActivity(intent);
-                            break;
-                        case 2:
-                            intent = new Intent(v.getContext(), ThirdStepReadyActivity.class);
-                            v.getContext().startActivity(intent);
-                            break;
-                    }
-                }
-            });
-        }
-    }
-}
-/*
-                        case 0:
-                            intent = new Intent(v.getContext(), FirstStepReadyActivity.class);
-                            v.getContext().startActivity(intent);
-                            break;
-                        case 1:
                             if (!check[0]) {
                                 Toast.makeText(context, "Step 1을 진행해주세요!", Toast.LENGTH_LONG).show();
                             } else {
@@ -117,4 +98,9 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
                                 v.getContext().startActivity(intent);
                             }
                             break;
- */
+                    }
+                }
+            });
+        }
+    }
+}

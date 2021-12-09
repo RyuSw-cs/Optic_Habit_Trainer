@@ -27,4 +27,12 @@
         app:layout_constraintStart_toStartOf="@+id/second_step_canvas"
         app:layout_constraintTop_toTopOf="@+id/second_step_canvas" />
 
+    <SurfaceView
+        android:id="@+id/second_front_camera"
+        android:visibility="visible"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
