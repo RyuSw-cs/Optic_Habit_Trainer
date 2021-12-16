@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     private void addListData(){
         list.clear();
         list.add(new Step("STEP 1 - Reading Test 1","글씨를 읽을 때 시습관을 관찰합니다."));
-        list.add(new Step("STEP 2 - Training","공의 움직임에 따라 눈동자의 움직임을 관찰하고 학습합니다."));
+        list.add(new Step("STEP 2 - Training","공의 움직임에 따른 헤드무빙을 학습합니다."));
         list.add(new Step("STEP 3 - Reading Test 2","시력 습관을 개선하기 위한 테스트를 진행합니다."));
     }
 }

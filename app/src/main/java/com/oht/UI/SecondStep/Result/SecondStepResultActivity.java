@@ -36,7 +36,6 @@ public class SecondStepResultActivity extends AppCompatActivity {
     private TextView result;
     private FloatingActionButton endBtn;
     private String content;
-    private TrainBackground trainBackground;
     private boolean check = false;
     private VideoView videoView;
     private List<String> files = new ArrayList<>();
@@ -52,7 +51,6 @@ public class SecondStepResultActivity extends AppCompatActivity {
     private void init(){
         result = findViewById(R.id.third_step_result);
         endBtn = findViewById(R.id.thrid_step_result_end);
-        trainBackground = findViewById(R.id.second_step_content);
         videoView = findViewById(R.id.second_video_view);
 
         getVideoSource();

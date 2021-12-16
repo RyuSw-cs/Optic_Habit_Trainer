@@ -1,5 +1,6 @@
 package com.oht.UI.FirstStep.Ready;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.hardware.Camera;
 import android.media.CamcorderProfile;
@@ -96,7 +97,6 @@ public class FirstStepActivity extends AppCompatActivity implements SurfaceHolde
         recordAudio();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public void recordAudio() {
         try {
             int i;
@@ -148,22 +148,25 @@ public class FirstStepActivity extends AppCompatActivity implements SurfaceHolde
         super.onStart();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder holder) {
         try {
             mediaRecorder = new MediaRecorder();
             mediaRecorder.setCamera(frontCamera);
             mediaRecorder.setPreviewDisplay(surfaceHolder.getSurface());
-            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
             mediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
             mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
             mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
             mediaRecorder.setVideoEncodingBitRate(1024 * 1024);
             mediaRecorder.setVideoFrameRate(15);
             mediaRecorder.setOrientationHint(270);
-            mediaRecorder.setOutputFile(fileName);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                mediaRecorder.setOutputFile(fileName);
+            }
+            else{
+                String temp = fileName.getAbsoluteFile().toString();
+                mediaRecorder.setOutputFile(temp);
+            }
             mediaRecorder.prepare();
             mediaRecorder.start();
             timer.schedule(timerTask, 0, 1000);

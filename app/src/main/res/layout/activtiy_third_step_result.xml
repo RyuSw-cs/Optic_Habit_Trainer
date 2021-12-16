@@ -34,70 +34,73 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/step1_title" />
 
+    <VideoView
+        android:id="@+id/third_video_view_1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_content" />
+
+
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/third_step_test_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/first_step_btn"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
         android:fontFamily="@font/kakaobold"
         android:gravity="center"
         android:padding="10dp"
         android:text="STEP 1-테스트 결과"
         android:textColor="#ffffff"
         android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step_content" />
+        app:layout_constraintStart_toStartOf="@+id/third_video_view_1"
+        app:layout_constraintTop_toTopOf="@+id/third_video_view_1" />
 
     <VideoView
-        android:id="@+id/third_video_view_1"
+        android:id="@+id/third_video_view_2"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="0dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/third_step_result"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/third_step_test_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/first_step_btn"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
         android:fontFamily="@font/kakaobold"
         android:gravity="center"
         android:padding="10dp"
         android:text="STEP 3-테스트 결과"
         android:textColor="#ffffff"
         android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/third_video_view_1" />
-
-    <VideoView
-        android:id="@+id/third_video_view_2"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintStart_toStartOf="@+id/third_video_view_2"
+        app:layout_constraintTop_toTopOf="@+id/third_video_view_2" />
 
     <TextView
         android:id="@+id/third_step_result"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/text_background"
         android:fontFamily="@font/kakaobold"
         android:padding="25dp"
@@ -107,8 +110,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/thrid_step_result_end"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/surfaceView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/thrid_step_result_end"
@@ -122,4 +124,13 @@
         app:layout_constraintBottom_toBottomOf="@+id/third_step_result"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/third_step_result" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
