@@ -2,6 +2,7 @@ package com.oht.UI.Main.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,9 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.stepTitle.setText(getList.get(position).getStepTitle());
         holder.stepContent.setText(getList.get(position).getStepContent());
+        if(holder.itemView.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            holder.subTitle.setText(getList.get(position).getSubTitle());
+        }
         int tempTop = holder.startBtn.getPaddingTop();
         int tempBottom = holder.startBtn.getPaddingBottom();
         //완료
@@ -64,7 +68,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView stepTitle, stepContent;
+        private TextView stepTitle, stepContent, subTitle;
         private Button startBtn;
 
         public ViewHolder(@NonNull View itemView) {
@@ -72,6 +76,10 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
             stepTitle = itemView.findViewById(R.id.main_step_title);
             stepContent = itemView.findViewById(R.id.main_step_content);
             startBtn = itemView.findViewById(R.id.main_step_btn);
+
+            if(itemView.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+                subTitle = itemView.findViewById(R.id.main_step_sub_title);
+            }
 
             startBtn.setOnClickListener(new View.OnClickListener() {
                 @Override

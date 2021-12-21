@@ -127,9 +127,7 @@ public class FirstStepReadyActivity extends AppCompatActivity {
 
     private void init() {
         nextStep = findViewById(R.id.first_step_next_step);
-        imageView = findViewById(R.id.test);
         mTextureView = findViewById(R.id.cameraPreview);
-        imageView.bringToFront();
         nextStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

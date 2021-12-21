@@ -41,7 +41,7 @@
         android:padding="25dp"
         android:text="결과 확인하기"
         android:textColor="#ffffff"
-        android:textSize="32dp"
+        android:textSize="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

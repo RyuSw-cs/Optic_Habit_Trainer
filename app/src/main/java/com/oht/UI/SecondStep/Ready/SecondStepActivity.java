@@ -45,6 +45,7 @@ public class SecondStepActivity extends AppCompatActivity implements SurfaceHold
     private Camera frontCamera;
     private MediaRecorder mediaRecorder;
     private File fileName, fileDir;
+    private int calcSecond = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,6 +53,8 @@ public class SecondStepActivity extends AppCompatActivity implements SurfaceHold
         setContentView(R.layout.activity_second_step);
         trainBackground = (TrainBackground) findViewById(R.id.second_step_canvas);
         startBtn = findViewById(R.id.start_btn);
+
+
 
         surfaceView = findViewById(R.id.second_front_camera);
         surfaceHolder = surfaceView.getHolder();
@@ -62,6 +65,7 @@ public class SecondStepActivity extends AppCompatActivity implements SurfaceHold
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
+                calcSecond = (trainBackground.size / 16) * 10;
                 while(mediaRecorder == null){
                     try {
                         Thread.sleep(1000);
@@ -104,7 +108,8 @@ public class SecondStepActivity extends AppCompatActivity implements SurfaceHold
                         Thread.currentThread().interrupt();
                     }
                     try {
-                        Thread.sleep(153);
+                        //밀리초 수정
+                        Thread.sleep(calcSecond);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

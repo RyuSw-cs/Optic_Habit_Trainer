@@ -53,7 +53,6 @@ import java.util.concurrent.TimeUnit;
 public class ThirdStepReadyActivity extends AppCompatActivity {
 
     private FloatingActionButton nextStep;
-    private ImageView imageView;
     private static final int MAX_PREVIEW_WIDTH = 1920;
     private static final int MAX_PREVIEW_HEIGHT = 1080;
     private final TextureView.SurfaceTextureListener mSurfaceTextureListener = new TextureView.SurfaceTextureListener() {
@@ -120,10 +119,7 @@ public class ThirdStepReadyActivity extends AppCompatActivity {
         setContentView(R.layout.activtiy_third_step_ready);
 
         nextStep = findViewById(R.id.third_step_next_step);
-        imageView = findViewById(R.id.test);
         mTextureView = findViewById(R.id.cameraPreview3);
-
-        imageView.bringToFront();
         nextStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -49,9 +49,9 @@ public class SecondStepResultActivity extends AppCompatActivity {
         init();
     }
     private void init(){
-        result = findViewById(R.id.third_step_result);
-        endBtn = findViewById(R.id.thrid_step_result_end);
-        videoView = findViewById(R.id.second_video_view);
+        result = findViewById(R.id.second_step_result);
+        endBtn = findViewById(R.id.second_step_result_end);
+        videoView = findViewById(R.id.second_step_video_view);
 
         getVideoSource();
 
@@ -62,7 +62,7 @@ public class SecondStepResultActivity extends AppCompatActivity {
         videoView.start();
 
         String newPoint = String.valueOf(randomPoint()) + "점 ";
-        result.setText("당신의 시력습관은\n" + newPoint +"입니다.");
+        result.setText("당신의 시력습관은" + newPoint +"입니다.");
         content = result.getText().toString();
 
         spannableString = new SpannableString(content);

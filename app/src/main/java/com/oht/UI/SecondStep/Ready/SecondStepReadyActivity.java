@@ -51,7 +51,6 @@ import java.util.concurrent.TimeUnit;
 public class SecondStepReadyActivity extends AppCompatActivity {
 
     private FloatingActionButton nextStep;
-    private ImageView imageView;
     private static final int MAX_PREVIEW_WIDTH = 1920;
     private static final int MAX_PREVIEW_HEIGHT = 1080;
     private final TextureView.SurfaceTextureListener mSurfaceTextureListener = new TextureView.SurfaceTextureListener() {
@@ -118,10 +117,7 @@ public class SecondStepReadyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second_step_ready);
 
         nextStep = findViewById(R.id.second_step_next_step);
-        imageView = findViewById(R.id.test);
         mTextureView = findViewById(R.id.cameraPreview2);
-
-        imageView.bringToFront();
         nextStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

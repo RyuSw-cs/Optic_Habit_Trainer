@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.media.VolumeShaper;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -80,8 +82,15 @@ public class MainActivity extends AppCompatActivity {
     }
     private void addListData(){
         list.clear();
-        list.add(new Step("STEP 1 - Reading Test 1","글씨를 읽을 때 시습관을 관찰합니다."));
-        list.add(new Step("STEP 2 - Training","공의 움직임에 따른 헤드무빙을 학습합니다."));
-        list.add(new Step("STEP 3 - Reading Test 2","시력 습관을 개선하기 위한 테스트를 진행합니다."));
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            list.add(new Step("STEP 1 - Reading Test 1","글씨를 읽을 때 시습관을 관찰합니다."));
+            list.add(new Step("STEP 2 - Training","공의 움직임에 따른 헤드무빙을 학습합니다."));
+            list.add(new Step("STEP 3 - Reading Test 2","시력 습관을 개선하기 위한 테스트를 진행합니다."));
+        }
+        else {
+            list.add(new Step("STEP 1","Reading Test 1","글씨를 읽을 때 시습관을 관찰합니다."));
+            list.add(new Step("STEP 2","Training","공의 움직임에 따른 헤드무빙을 학습합니다."));
+            list.add(new Step("STEP 3","Reading Test 2","시력 습관을 개선하기 위한 테스트를 진행합니다."));
+        }
     }
 }

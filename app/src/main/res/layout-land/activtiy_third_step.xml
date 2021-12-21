@@ -63,7 +63,7 @@
         android:background="@drawable/text_background"
         android:fontFamily="@font/kakaobold"
         android:gravity="center"
-        android:text="@string/first_step_content"
+        android:text="@string/first_step_content_land"
         android:textColor="@color/black"
         android:textSize="28dp"
         app:layout_constraintBottom_toBottomOf="parent"

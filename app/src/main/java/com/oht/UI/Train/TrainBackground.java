@@ -56,10 +56,10 @@ public class TrainBackground extends View {
 
     private void init() {
         change = new Paint();
-        leftWidth = 80;
-        rightWidth = 180;
-        leftHeight = 80;
-        rightHeight = 180;
+        leftWidth = 30;
+        rightWidth = 130;
+        leftHeight = 20;
+        rightHeight = 120;
         width = 0;
         height = 0;
         check = true;
@@ -99,11 +99,11 @@ public class TrainBackground extends View {
                 rectF.set(leftWidth, leftHeight, rightWidth, rightHeight);
                 shape.add(new Circle(rectF, paint));
                 canvas.drawArc(rectF, 0, 360, true, paint);
-                leftWidth += 144;
-                rightWidth += 144;
+                leftWidth += 155;
+                rightWidth += 155;
             }
-            leftWidth = 70;
-            rightWidth = 170;
+            leftWidth = 30;
+            rightWidth = 130;
             leftHeight += 140;
             rightHeight += 140;
         }

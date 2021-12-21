@@ -7,47 +7,17 @@
     android:background="#ffffff"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/step1_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/kakaobold"
-        android:text="STEP 3"
-        android:textColor="@color/black"
-        android:textSize="52dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/step_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/kakaoregular"
-        android:text="트레이닝 결과"
-        android:textColor="@color/black"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step1_title" />
 
     <VideoView
         android:id="@+id/third_video_view_1"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/third_step_result"
+        app:layout_constraintEnd_toStartOf="@+id/view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step_content" />
-
+        app:layout_constraintTop_toTopOf="@+id/view" />
 
     <TextView
         android:id="@+id/third_step_test_1"
@@ -65,19 +35,49 @@
         app:layout_constraintStart_toStartOf="@+id/third_video_view_1"
         app:layout_constraintTop_toTopOf="@+id/third_video_view_1" />
 
+
+    <TextView
+        android:id="@+id/third_step_result"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/text_background"
+        android:fontFamily="@font/kakaobold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="당신의 시력습관은 00점 입니다."
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/thrid_step_result_end"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/thrid_step_result_end"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#2977F3"
+        android:clickable="true"
+        android:src="@drawable/next_step_img"
+        app:fabCustomSize="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/third_step_result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/third_step_result" />
+
     <VideoView
         android:id="@+id/third_video_view_2"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/third_step_result"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/third_step_test_2"
@@ -95,41 +95,10 @@
         app:layout_constraintStart_toStartOf="@+id/third_video_view_2"
         app:layout_constraintTop_toTopOf="@+id/third_video_view_2" />
 
-    <TextView
-        android:id="@+id/third_step_result"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/text_background"
-        android:fontFamily="@font/kakaobold"
-        android:padding="25dp"
-        android:text="당신의 시력습관은\n 00점 입니다."
-        android:textColor="@color/black"
-        android:textSize="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/thrid_step_result_end"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/thrid_step_result_end"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="40dp"
-        android:backgroundTint="#2977F3"
-        android:clickable="true"
-        android:src="@drawable/next_step_img"
-        app:fabCustomSize="80dp"
-        app:layout_constraintBottom_toBottomOf="@+id/third_step_result"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/third_step_result" />
-
     <View
         android:id="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
