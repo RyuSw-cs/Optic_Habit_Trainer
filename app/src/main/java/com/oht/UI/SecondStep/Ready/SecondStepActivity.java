@@ -1,6 +1,7 @@
 package com.oht.UI.SecondStep.Ready;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraCaptureSession;
@@ -188,7 +189,12 @@ public class SecondStepActivity extends AppCompatActivity implements SurfaceHold
         mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
         mediaRecorder.setVideoEncodingBitRate(1024 * 1024);
         mediaRecorder.setVideoFrameRate(15);
-        mediaRecorder.setOrientationHint(270);
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            mediaRecorder.setOrientationHint(90);
+        }
+        else{
+            mediaRecorder.setOrientationHint(180);
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             mediaRecorder.setOutputFile(fileName);
         }

@@ -2,6 +2,7 @@ package com.oht.UI.FirstStep.Ready;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.hardware.Camera;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
@@ -33,8 +34,8 @@ import java.util.TimerTask;
 
 public class FirstStepActivity extends AppCompatActivity implements SurfaceHolder.Callback {
 
-    private int time = 15;
-    private int proceed = 7;
+    private int time = 16;
+    private int proceed = 0;
     private ProgressBar progressBar;
     private MediaRecorder mediaRecorder;
     private File fileName, fileDir;
@@ -159,7 +160,13 @@ public class FirstStepActivity extends AppCompatActivity implements SurfaceHolde
             mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
             mediaRecorder.setVideoEncodingBitRate(1024 * 1024);
             mediaRecorder.setVideoFrameRate(15);
-            mediaRecorder.setOrientationHint(270);
+            if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+                mediaRecorder.setOrientationHint(90);
+            }
+            else{
+                mediaRecorder.setOrientationHint(180);
+            }
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 mediaRecorder.setOutputFile(fileName);
             }

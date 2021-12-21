@@ -43,6 +43,8 @@
         android:layout_marginEnd="20dp"
         android:paddingTop="25dp"
         android:paddingBottom="25dp"
+        android:paddingLeft="45dp"
+        android:paddingRight="45dp"
         android:background="@drawable/main_btn_shape"
         android:fontFamily="@font/kakaoregular"
         android:text="시작하기"
