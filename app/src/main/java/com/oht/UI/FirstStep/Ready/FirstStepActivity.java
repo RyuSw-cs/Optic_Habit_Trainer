@@ -2,6 +2,7 @@ package com.oht.UI.FirstStep.Ready;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.hardware.Camera;
@@ -14,6 +15,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.TextureView;
@@ -164,11 +166,19 @@ public class FirstStepActivity extends AppCompatActivity implements SurfaceHolde
             mediaRecorder.setVideoEncodingBitRate(1920*1080);
             mediaRecorder.setVideoFrameRate(30);
             mediaRecorder.setVideoSize(1280,720);
-            if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-                mediaRecorder.setOrientationHint(270);
-            }
-            else{
-                mediaRecorder.setOrientationHint(180);
+            switch (getWindowManager().getDefaultDisplay().getRotation()){
+                case Surface.ROTATION_0:
+                    mediaRecorder.setOrientationHint(270);
+                    break;
+                case Surface.ROTATION_90:
+                    mediaRecorder.setOrientationHint(0);
+                    break;
+                case Surface.ROTATION_180:
+                    mediaRecorder.setOrientationHint(90);
+                    break;
+                case Surface.ROTATION_270:
+                    mediaRecorder.setOrientationHint(180);
+                    break;
             }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 mediaRecorder.setOutputFile(fileName);

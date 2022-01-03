@@ -11,6 +11,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.TextureView;
@@ -159,13 +160,20 @@ public class ThirdStepActivity extends AppCompatActivity implements SurfaceHolde
             mediaRecorder.setVideoEncodingBitRate(1920*1080);
             mediaRecorder.setVideoSize(1280,720);
             mediaRecorder.setVideoFrameRate(30);
-            if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-                mediaRecorder.setOrientationHint(270);
+            switch (getWindowManager().getDefaultDisplay().getRotation()){
+                case Surface.ROTATION_0:
+                    mediaRecorder.setOrientationHint(270);
+                    break;
+                case Surface.ROTATION_90:
+                    mediaRecorder.setOrientationHint(0);
+                    break;
+                case Surface.ROTATION_180:
+                    mediaRecorder.setOrientationHint(90);
+                    break;
+                case Surface.ROTATION_270:
+                    mediaRecorder.setOrientationHint(180);
+                    break;
             }
-            else{
-                mediaRecorder.setOrientationHint(180);
-            }
-
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 mediaRecorder.setOutputFile(fileName);
             }
