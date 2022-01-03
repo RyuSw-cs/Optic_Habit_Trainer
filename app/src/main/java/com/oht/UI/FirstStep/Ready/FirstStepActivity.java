@@ -3,6 +3,7 @@ package com.oht.UI.FirstStep.Ready;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.hardware.Camera;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
@@ -11,11 +12,13 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.TextureView;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
@@ -158,15 +161,15 @@ public class FirstStepActivity extends AppCompatActivity implements SurfaceHolde
             mediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
             mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
             mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
-            mediaRecorder.setVideoEncodingBitRate(1024 * 1024);
-            mediaRecorder.setVideoFrameRate(15);
+            mediaRecorder.setVideoEncodingBitRate(1920*1080);
+            mediaRecorder.setVideoFrameRate(30);
+            mediaRecorder.setVideoSize(1280,720);
             if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-                mediaRecorder.setOrientationHint(90);
+                mediaRecorder.setOrientationHint(270);
             }
             else{
                 mediaRecorder.setOrientationHint(180);
             }
-
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 mediaRecorder.setOutputFile(fileName);
             }

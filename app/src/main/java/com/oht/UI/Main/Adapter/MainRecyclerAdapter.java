@@ -47,16 +47,19 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.stepTitle.setText(getList.get(position).getStepTitle());
         holder.stepContent.setText(getList.get(position).getStepContent());
-        if(holder.itemView.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+        if(holder.itemView.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             holder.subTitle.setText(getList.get(position).getSubTitle());
         }
-        int tempTop = holder.startBtn.getPaddingTop();
-        int tempBottom = holder.startBtn.getPaddingBottom();
         //완료
         if (check[position]) {
             holder.itemView.setBackground(ContextCompat.getDrawable(context, R.drawable.main_list_after));
             holder.startBtn.setBackground(ContextCompat.getDrawable(context, R.drawable.main_btn_shape_after));
-            holder.startBtn.setPadding(0, tempTop, 0, tempBottom);
+            if(holder.itemView.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+                holder.startBtn.setPadding(16,16,16,16);
+            }
+            else{
+                holder.startBtn.setPadding(90,50,90,50);
+            }
             holder.startBtn.setEnabled(false);
         }
     }

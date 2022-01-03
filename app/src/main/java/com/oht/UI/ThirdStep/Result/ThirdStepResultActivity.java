@@ -66,7 +66,7 @@ public class ThirdStepResultActivity extends AppCompatActivity {
         secondVideoView.start();
 
         String newPoint = String.valueOf(randomPoint()) + "점 ";
-        result.setText("당신의 시력습관은" + newPoint +"입니다.");
+        result.setText("당신의 시력습관은" + newPoint +" 입니다.");
         content = result.getText().toString();
 
         spannableString = new SpannableString(content);

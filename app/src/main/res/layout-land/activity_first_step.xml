@@ -11,12 +11,12 @@
         android:id="@+id/step1_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/kakaobold"
         android:text="STEP 1"
         android:textColor="@color/black"
         android:textSize="52dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,15 +25,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:fontFamily="@font/kakaobold"
         android:text="15초 동안, 화면에 표시된 글을 읽어주세요."
         android:textColor="@color/black"
         android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step1_title" />
+        app:layout_constraintBottom_toBottomOf="@+id/step1_title"
+        app:layout_constraintStart_toEndOf="@+id/step1_title" />
 
     <ProgressBar
         android:id="@+id/first_step_progress_bar"
@@ -49,7 +46,7 @@
         android:scaleY="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step_content" />
+        app:layout_constraintTop_toBottomOf="@+id/step1_title" />
 
     <TextView
         android:id="@+id/first_step_content"
@@ -68,7 +65,7 @@
         android:textSize="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/first_step_progress_bar"
         app:layout_constraintVertical_bias="0.0" />

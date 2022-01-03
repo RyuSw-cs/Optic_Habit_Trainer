@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
 
-    //_1.mp4 파일을 전부 가져와서 날짜별로 정렬 -> 가장 최신순을 재생.
     private void init(){
         floatingActionButton = findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 recyclerView.setAdapter(mainRecyclerAdapter);
             }
         });
-
         recyclerView = findViewById(R.id.main_recycler_view);
         mainRecyclerAdapter = new MainRecyclerAdapter(list, check,this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

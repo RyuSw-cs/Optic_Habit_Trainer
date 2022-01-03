@@ -187,10 +187,11 @@ public class SecondStepActivity extends AppCompatActivity implements SurfaceHold
         mediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
-        mediaRecorder.setVideoEncodingBitRate(1024 * 1024);
-        mediaRecorder.setVideoFrameRate(15);
+        mediaRecorder.setVideoEncodingBitRate(1920*1080);
+        mediaRecorder.setVideoSize(1280,720);
+        mediaRecorder.setVideoFrameRate(30);
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-            mediaRecorder.setOrientationHint(90);
+            mediaRecorder.setOrientationHint(270);
         }
         else{
             mediaRecorder.setOrientationHint(180);
