@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private MainRecyclerAdapter mainRecyclerAdapter;
     private List<Step>list = new ArrayList<>();
     private FloatingActionButton floatingActionButton;
-    public static boolean[] check = {false, false, false};
+    public static boolean[] check = {true, false, false};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
