@@ -1,5 +1,5 @@
 # Optic_Habit_Trainer
-<img src="https://user-images.githubusercontent.com/72602912/156163423-eaec124b-7161-4ac3-a770-eaf101e1dee4.png"/>
+<img width = 600 height =350 src="https://user-images.githubusercontent.com/72602912/156163423-eaec124b-7161-4ac3-a770-eaf101e1dee4.png"/>
 
 </br>
 
