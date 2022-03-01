@@ -1,60 +1,38 @@
 # Optic_Habit_Trainer
-### 누진다초점 렌즈 사용자의 시습관을 트레이닝 합니다.🔍
-CustomView와 Camera2 API를 사용하여 단계별로 시습관을 관찰, 학습, 비교를 합니다.
-</br></br>
-<img width="400" src="https://user-images.githubusercontent.com/72602912/148717627-4763c16e-0f9f-4f3e-b6f1-4716d10894a0.png">
-</br>
-<hr>
+<img src="https://user-images.githubusercontent.com/72602912/156163423-eaec124b-7161-4ac3-a770-eaf101e1dee4.png"/>
 
-### 📱 플랫폼
-<img src="https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=Android&logoColor=white"/>
-
-
-### 🙆‍♂️ 언어
-<img src="https://img.shields.io/badge/Kotlin-0095D5?style=flat-square&logo=Java&logoColor=white"/> 
 </br>
 
-### ⚙ 기술 스택
-#### Camera2 API</br>
-<img width="830" alt="paging" src="https://user-images.githubusercontent.com/72602912/148720375-47ad296a-2621-48e6-9339-eede27c1adce.png">
-- 페이징 된 데이터의 메모리 내 <strong>캐싱</strong>을 통해 효율적인 리소스 활용</br>
-- <strong>비동기</strong> 처리</br>
-- 새로고침 및 재시도 기능, 오류처리를 지원</br>
-</br>
+## 👩‍🏫PROJECT 소개
+누진다초점 렌즈 사용자를 위한 시습관 학습 앱 입니다.
 
-#### 주요 기술🛠
+STEP1 - 시습관을 관찰합니다.
 
-<strong>Custom View &nbsp; MediaRecoder &nbsp; Thread &nbsp;</strong>
+STEP2 - 공의 움직임에 따른 헤드무빙을 학습합니다.
 
-<hr>
+STEP3 - 시력 습관 개선을 위한 테스트를 진행합니다.
 
-### 📅 프로젝트 구성
+누진다초점을 처음 사용하는 사용자들에게 빠르게 적응하기 위해 사용됩니다.
 
-![structure](https://user-images.githubusercontent.com/72602912/148727205-b85fe758-73a9-4478-a9b4-fc8c7616dd33.PNG)
+실제 안경점에서 사용중이며 지속적으로 개선하고 있습니다.
 
-- **models**
-  - HTTP Method를 사용하여 데이터를 가져올 모델 패키지
+🗓️ **작업기간** : 2021.11 ~ 2022.01
 
-- **api -> ApiService**
-  - HTTP Method를 구현한 인터페이스
-  - Repository의 데이터를 가져오므로 GET만 생성
+👨‍💻 **투입인원** : 1명
 
-- **module**
-  - Retrofit 객체를 빌드 및 생성
+📒 **주요업무** 
 
-- **viewModel**
-  - 데이터 갱신처리 요청 및 참조
-  - keyword 값에 따른 데이터 변경
+- UI/UX 설계 및 모델링
+- Camera2 API 구현
+- Custom View 구현
+- MediaRecoder 구현
 
-- **paging**
-  - Paging 라이브러리 구현
+💪**개선사항**
 
-- **ui**
-  - 검색 기능을 사용할 UI
-  - Databinding 사용
-  - Observer를 활용하여 데이터가 변경 시 작동
+- 태블릿의 카메라 위치로 인한 가로모드 추가 및 세로모드 UI 오류 수정(2021-12-17)
+- 가로모드 UI 오류 및 MediaRecorder Orientation 수정(2021-12-22)
+- 동영상 품질 향상(2022-01-02)
 
-- **adapter**
-  - PagingDataAdapter 구현
-  - 페이징 기능을 구현하기 위한 RepoLoadStateAdapter 구현
+🌱 **사용툴**
 
+`Android Studio` `Github` `SourceTree`
